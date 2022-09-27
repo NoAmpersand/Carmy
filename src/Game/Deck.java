@@ -1,18 +1,15 @@
-import java.util.Random;
-import java.util.stream.Collectors;
-import java.util.Arrays;
+package Game;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
+    
     protected static List<Card> deckEssai = new ArrayList<Card>();
 
-    static void shuffleDeck(List<Card> deck){
-        Collections.shuffle(deck);
-    }
-    
-    static{
+    static
+    {
         for (Card.Couleur couleur : Card.Couleur.values())
         {
             for (Card.Valeur valeur : Card.Valeur.values())
@@ -20,6 +17,7 @@ public class Deck {
                 deckEssai.add(new Card(valeur, couleur));
             }
         }
+        Collections.shuffle(deckEssai);
     }
 
     public static List<Card> newRandomHand(List<Card> deck){
@@ -34,27 +32,13 @@ public class Deck {
         return main;       
     }
 
-    public static void main(String ...args){
-        Deck d = new Deck();
-        shuffleDeck(deckEssai);
-        System.out.println(d);
-        int i = 0;
-        for(Card elem: deckEssai)
-        {
-       	    System.out.println (elem.affichage());
-            i += 1;
-        }
-        System.out.println(i);
-        newRandomHand(deckEssai);
-        System.out.println("----------------------------");
-        i = 0;
-        for(Card elem: deckEssai)
-        {
-       	    System.out.println (elem.affichage());
-            i += 1;
-        }
-        System.out.println(i);
+    public static void addDeck(Card uneCarte){
+        deckEssai.add(uneCarte);
+        Collections.shuffle(deckEssai);
     }
 
-    
-}
+    public static Card getRandomCards(List<Card> deck){
+        Card temp = (Card) deck.get(0);
+        deck.remove(0);
+        return temp;
+    }
