@@ -100,7 +100,7 @@ public class Player {
                 carreExist++;
             }
         }
-    	int totalScore = paireExist + 2*brelanExist + 3*carreExist;
+    	int totalScore = paireExist + 3*brelanExist + 4*carreExist;
     	
     	return totalScore;
     }
