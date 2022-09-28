@@ -66,7 +66,7 @@ public class Player {
         int taille = main.size();
         int nbAjout = 5 - taille;
         for(int i = 0; i < nbAjout; i++){
-            main.add(Deck.getRandomCards(Deck.deckEssai));
+            main.add(Deck.getRandomCards(Deck.getCards()));
         }
         return main;
     }
@@ -74,11 +74,11 @@ public class Player {
     private static Map<Card.Valeur, Integer> checkHand(List<Card> hand) {
     	Map<Card.Valeur, Integer> handMap = new HashMap<>();
         for(Card card : hand ){
-            if(handMap.containsKey(card.valeur)){
-                int newOcc = handMap.get(card.valeur)+1;
-                handMap.put(card.valeur, newOcc);
+            if(handMap.containsKey(card.getValeur())){
+                int newOcc = handMap.get(card.getValeur())+1;
+                handMap.put(card.getValeur(), newOcc);
             } else {
-                handMap.put(card.valeur, 1);
+                handMap.put(card.getValeur(), 1);
             }
         }
         return handMap;
