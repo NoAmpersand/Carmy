@@ -9,18 +9,24 @@ import java.util.Collections;
 
 public class Deck {
     
-    protected static List<Card> deckEssai = new ArrayList<Card>();
-
+    private static List<Card> cards = new ArrayList<Card>();
+    
+    public static List<Card> getCards() {
+    	return cards;   	
+    }
+    private Deck() {
+    	
+    }
     static
     {
         for (Card.Couleur couleur : Card.Couleur.values())
         {
             for (Card.Valeur valeur : Card.Valeur.values())
             {
-                deckEssai.add(new Card(valeur, couleur));
+                cards.add(new Card(valeur, couleur));
             }
         }
-        Collections.shuffle(deckEssai);
+        Collections.shuffle(cards);
     }
 
     public static List<Card> newRandomHand(List<Card> deck){
@@ -36,8 +42,8 @@ public class Deck {
     }
 
     public static void addDeck(Card uneCarte){
-        deckEssai.add(uneCarte);
-        Collections.shuffle(deckEssai);
+        cards.add(uneCarte);
+        Collections.shuffle(cards);
     }
 
     public static Card getRandomCards(List<Card> deck){
