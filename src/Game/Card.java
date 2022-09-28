@@ -1,6 +1,6 @@
 package Game;
 
-public class Card extends Deck{
+public class Card {
     public enum Couleur{ 
         COEUR,
         CARRE,
@@ -14,11 +14,11 @@ public class Card extends Deck{
         NEUF,
         DIX,
         VALET,
-        REINE,
+        DAME,
         ROI;
     }
-    public final Valeur valeur;
-    public final Couleur couleur;
+    private final Valeur valeur;
+    private final Couleur couleur;
 
     public Card(Valeur valeur, Couleur couleur){
         this.valeur = valeur;
